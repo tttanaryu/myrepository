@@ -1,6 +1,7 @@
 # フィックスポイント試験用プログラム　pingcheck 仕様書
 
 フィックスポイントのプログラミング試験で作ったサーバの故障検出プログラムpingcheckの仕様書。
+使用言語はJuliaである。
 
 ```julia
 pingcheck(file_name::String, N=1, m=0, t=Inf) -> nothing
