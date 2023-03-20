@@ -14,7 +14,7 @@ using Combinatorics
 const findflag = 1 #0でfindopt_n,1でfindopt_A,2でfindopt_a
 
 #findopt:入力した可逆関数fを再現する最小回路を出力する
-function findopt_n(f::AbstractRFunc, H, k)
+function findopt_n(f::AbstractRFunc, H, k=length(H)-1)
     try
         #ハッシュテーブル内にfがキーとして存在するかをチェック
         haskeyω(H, f) && return getindexω(H, f)
