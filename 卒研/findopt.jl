@@ -2,12 +2,12 @@
 
 #using BenchmarkTools
 
-#include("header.jl")
-#include("basics.jl")
-#include("icequive.jl")
-#include("compressedtable.jl")
-include("lb.jl")
-include("A_star.jl")
+include("header.jl")
+include("basics.jl")
+include("icequive.jl")
+include("compressedtable.jl")
+#include("lb.jl")
+#include("A_star.jl")
 
 using Combinatorics
 
@@ -66,17 +66,12 @@ function BFS(k)
     return H
 end
 
-#initialize_all(3)
-#println(@benchmark BFS(3))
-#c = findopt(RFunc([0,3,5,6,7,4,2,1]), BFS(2),2)
-#println(to_rfunc(RCircuit([RGate(0,[2])])))
-
 # 現時点で思いつく方法　
 # ・ある程度候補になりそうな回路群を取っておいてその中から最小のものを解にする 実装は簡単だがそもそも枝刈りで排除したものの中に最小回路が無いことを証明できない
 # ・最初に枝刈りを用いて関数の適当な回路を求める→関数のサイズは適当に求めた回路のゲート数以下であるため、回路表にある最小回路を組み合わせることで求められる(探索の上限を先に作る)
 #   おそらく最小のものが出せると思うが実装が難しい あと結局計算量をさほど絞れてない
 
-function findopt_A(f::AbstractRFunc, H, k)
+#=function findopt_A(f::AbstractRFunc, H, k)
     #ハッシュテーブル内にfがキーとして存在するかをチェック
     haskeyω(H, f) && return getindexω(H, f)
 
@@ -269,4 +264,4 @@ function convert_0n(N, c_parts, n)
     end
 
     return number_list
-end
+end=#
